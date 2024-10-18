@@ -71,7 +71,7 @@ def extract_properties(soup):
             json_data = json_text.group(1)
         
             data_layer = json.loads(json_data)
-            # This was a pain in the ass to find
+            # This was a pain to find
             property_info['latitude'] = data_layer.get('latitude') if data_layer.get('latitude') else 'N/A'
             property_info['longitude'] = data_layer.get('longitude') if data_layer.get('longitude') else 'N/A'
 
@@ -147,7 +147,7 @@ if __name__ == '__main__':
     all_properties = []
     visited=set()
 
-    ## Random Sampling to avoid popularity bias, pick 200 out of 1000 pages, each page contains 20 pages
+    ## Random Sampling to avoid popularity bias, pick 500 out of 1000 pages, each page contains 20 pages
     ## Cluster Sampling
     start = time.time()
     random_pages = set(random.sample(range(1, MAX_PAGES + 1), NUM_PAGES_TO_SCRAPE))
